@@ -1,0 +1,30 @@
+group 'com.cc.demo'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories { mavenCentral() }
+
+dependencies {
+    compile "junit:junit:$junitVersion"
+
+    compile "org.springframework:spring-core:$springVersion"
+    compile "org.springframework:spring-context:$springVersion"
+    compile "org.springframework.data:spring-data-jpa:$springDataJpaVersion"
+    compile "org.springframework:spring-test:$springVersion"
+    compile "org.springframework:spring-orm:$springVersion"
+
+    compile "org.hibernate:hibernate-entitymanager:$hibernateVersion"
+
+    testCompile "hsqldb:hsqldb:$hsqlVersion"
+    // https://mvnrepository.com/artifact/mysql/mysql-connector-java
+    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.41'
+
+    compile "org.apache.tomcat:tomcat-jdbc:$tomcateJdbcVersion"
+
+    compile "org.liquibase:liquibase-core:$liquibaseVersion"
+}
