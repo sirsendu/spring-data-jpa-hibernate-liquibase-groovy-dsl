@@ -1,6 +1,7 @@
-group 'com.cc.demo'
+group 'com.cc.liquibase-groovy-dsl.demo'
 version '1.0-SNAPSHOT'
 
+//apply plugin: 'groovy'
 apply plugin: 'java'
 apply plugin: 'eclipse'
 
@@ -27,4 +28,17 @@ dependencies {
     compile "org.apache.tomcat:tomcat-jdbc:$tomcateJdbcVersion"
 
     compile "org.liquibase:liquibase-core:$liquibaseVersion"
+	// https://mvnrepository.com/artifact/org.liquibase/liquibase-groovy-dsl
+	compile group: 'org.liquibase', name: 'liquibase-groovy-dsl', version: '1.2.2'
+	
+}
+sourceSets {
+	main {
+		java {
+			srcDirs = ['src/main/java']
+		}
+		resources {
+			srcDirs = ['src/main/resources']
+		}
+	}
 }

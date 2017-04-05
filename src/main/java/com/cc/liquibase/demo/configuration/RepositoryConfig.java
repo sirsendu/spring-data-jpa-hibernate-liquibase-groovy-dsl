@@ -23,7 +23,7 @@ public class RepositoryConfig {
     private static final Properties HIBERNATE_PROPERTIES = readProperties();
     private static final String HIBERNATE_PROPERTIES_RESOURCE = "hibernate.properties";
     // private static final String DEFAULT_SCHEMA = "public";
-    private static final String LIQUIBASE_CHANGE_LOG = "classpath:liquibase/db.changelog-main.xml";
+    private static final String LIQUIBASE_CHANGE_LOG = "classpath:liquibase/changelog.groovy";
 
     private static Properties readProperties() {
         try (BufferedInputStream is = new BufferedInputStream(
@@ -84,6 +84,7 @@ public class RepositoryConfig {
         final SpringLiquibase liquibase = new SpringLiquibase();
         liquibase.setDataSource(dataSource());
         // liquibase.setDefaultSchema(DEFAULT_SCHEMA);
+        
         liquibase.setChangeLog(LIQUIBASE_CHANGE_LOG);
         return liquibase;
     }
